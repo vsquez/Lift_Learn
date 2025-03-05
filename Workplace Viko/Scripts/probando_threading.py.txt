@@ -1,0 +1,18 @@
+import threading
+import time
+
+def tarea_en_segundo_plano():
+    while True:
+        print("Tarea en segundo plano ejecutandose...")
+        time.sleep(2)
+
+# Crear un hilo para la tarea en segundo plano
+hilo_tarea = threading.Thread(target=tarea_en_segundo_plano)
+
+# Iniciar el hilo
+hilo_tarea.start()
+
+# El programa principal sigue ejecutandose
+while True:
+    print("Programa principal ejecutandose...")
+    time.sleep(1)

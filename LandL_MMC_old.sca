@@ -1,0 +1,271 @@
+﻿!ScalaScript1320
+// Saved by Diseñador Scala Versión 13.20.00 at 2024-05-14 12:49:13
+:"LandL_MMC.sca"
+{
+  Group:
+    External String(show_welcome_text("Descubre el sabor del agua ideal, para tu vida diaria"));
+    Integer(select, TriggerMMC_, producto);
+    FileNameString(img_Productos[5]("Recursos\NATURAL TETRA PACK.png", "Recursos\NATURAL.png", "Recursos\NATURAL GASIFICADA.png", "Recursos\TONICA.png"), img_producto("Recursos\NATURAL TETRA PACK.png"));
+    String(nom_item("Producto"));
+    Integer(putdown);
+    String(precio_producto("000"), Carac_Producto("Caracteristicas del producto!"));
+    Boolean(game_mouse_B);
+    String(productos_names[3]("", "Producto 1", "Producto 2^n"), precios_comp[3]("", "Precio 1", "Precio 2"));
+    External FileNameString(img_prodcomp[3]("", "Videos\Bui_290ml_Hierbabuena_600x600_crop_center.png", "Videos\Bui_290ml_Hierbabuena_600x600_crop_center.png"));
+    String(caracteristicas_comp[3]("", "Caracteristicas 1 ", "Caracteristicas 2^n"));
+    Integer(Trigger_Comp);
+    String(test("Producto 1"), ProdComp1("Producto 1"), ProdComp2("Producto 2^n"), PrecioComp1("Precio 1"), PrecioComp2("Precio 2"));
+    FileNameString(ImgComp1("Recursos\NATURAL TETRA PACK.png"), ImgComp2("Recursos\NATURAL.png"));
+    String(CaracComp("Caracteristicas 1 "), CaracComp1("Caracteristicas 1 "), CaracComp2("Caracteristicas 2 "));
+    Integer(TriggerSS);
+    BackgroundSettings(Size(1920, 1080));
+    OnNotification(TriggerMMC_, Use("GoProducto"));
+    OnNotification(putdown, Use("put_down"));
+    OnNotification(Trigger_Comp, Use("TriggerComp"));
+    OnNotification(TriggerSS, Use("ScreenSaver_Trigger"));
+    Config.RecentPublishLocations(PublishLocation("avacms08.scala.com ContentManager", "Lift&Learn BUI"));
+  Sequence:
+    :"Nextmosphere"
+    WindowsScript("Nexmosphere_Reader_1.py", Engine("Python.AXScript.2"), ShareVariable(show_welcome_text), ShareVariable(TriggerMMC_), ShareVariable(select), ShareVariable(img_producto), ShareVariable(img_Productos), ShareVariable(nom_item), ShareVariable(producto), ShareVariable(putdown), ShareVariable(precio_producto), ShareVariable(Carac_Producto), ShareVariable(game_mouse_B), ShareVariable(productos_names), ShareVariable(precios_comp), ShareVariable(img_prodcomp), ShareVariable(caracteristicas_comp), ShareVariable(Trigger_Comp), ShareVariable(test), ShareVariable(ProdComp1), ShareVariable(ProdComp2), ShareVariable(PrecioComp1), ShareVariable(PrecioComp2), ShareVariable(ImgComp1), ShareVariable(ImgComp2), ShareVariable(CaracComp), ShareVariable(CaracComp1), ShareVariable(CaracComp2), ShareVariable(TriggerSS));
+    :"InicioPauta"
+    {
+    }
+    :"Pantalla Principal"
+    {
+      Group:
+        Display(Backdrop(State(Off), Pen(20)), Margin(0, 0, 0, 0), UserPalette(RGBPen(1, $0, $ffffff, $999999, $555555, $712068, $df449c, $dc110e, $662200, $ff5a00, $ff9c00, $ffee00, $8800, $dd00, $cccc, $66ff, $aa, $777777, $bbbbbb, $dddddd, $465a96, $a9e0)), Thumbnail(On));
+        Wait();
+      Sequence:
+        {
+          Group:
+            HardDuration(100);
+            Text(212, 122, "¡Así de simple, B’ui!", Wipe("Straight", Duration(500), Direction(180), Acceleration(1, 1), Wait(Off)), Layer(1), Face(On, Pen(1)), Shadow(Off, Softness(5), Opacity(60)), Transparent(Off), Align(Center, None), AntiAlias(On), Update(None), OnReplay(Replace), Under(Off, Pen(1)), Font("LEMONMILKProFTR-Bold (Western [<LEMON MILK Pro FTR Bold> 700])", 85), Spacing(4), Leading(-29), Justify(Center, Top), Tabs(Relative(On)), Wrap(On, Width(866)));
+        }
+        {
+          Group:
+            MovieClip(0, 0, "Recursos\BACK PRINCIPAL.mp4", Wipe("Straight", Duration(500), Direction(180), Acceleration(1, 1), Wait(Off)), Align(Center, None), Update(None), OnReplay(Replace), Operation(On, ChromaKey($21ff3f, Feather(0))));
+            HardDuration(100);
+        }
+        {
+          Group:
+            HardDuration(100);
+            Text(209, 206, "Descubre el sabor del agua ideal,", Wipe("Straight", Duration(500), Direction(180), Acceleration(1, 1), Wait(Off)), Layer(1), Face(On, Pen(1)), Shadow(Off, Softness(5), Opacity(60)), Transparent(Off), Align(Center, None), AntiAlias(On), Update(None), OnReplay(Replace), Under(Off, Pen(1)), Font("LEMONMILKProFTR-Regular (Western [<LEMON MILK Pro FTR>])", 50), Spacing(4), Leading(-29), Justify(Center, Top), Tabs(Relative(On)), Wrap(Off, Width(866)), Append(" para tu vida diaria", Shadow(Off, Softness(5), Opacity(60)), Font("LEMONMILKProFTR-Bold (Western [<LEMON MILK Pro FTR Bold> 700])", 50), Under(Off, Pen(1))));
+        }
+        :"BUI TONIC"
+        {
+          Group:
+            HardDuration(0);
+            TextBox(185, 930, 200, 60, "A", Wipe("Straight", Duration(1000), Direction(0), Acceleration(1, 1), Wait(Off)), Layer(1), Face(On, Pen(1)), Shadow(Off, Softness(5), Opacity(60)), Transparent(Off), AntiAlias(On), OnReplay(Replace), Under(Off, Pen(1)), Font("LEMONMILKProFTR-Bold (Western [<LEMON MILK Pro FTR Bold> 700])", 31), AdjustFontSize(Off, MinSize(25)), Caps(All), Kerning(None), Leading(-8), Justify(Center, Top), Tabs(Relative(On)), Append("gua B’ui^nTetra Pak", Shadow(Off, Softness(5), Opacity(60)), Caps(Normal), Under(Off, Pen(1))));
+        }
+        :"BUI TONIC.5"
+        {
+          Group:
+            HardDuration(0);
+            TextBox(185, 980, 200, 50, "500 ml", Wipe("Straight", Duration(1000), Direction(0), Acceleration(1, 1), Wait(Off)), Layer(1), Face(On, Pen(1)), Shadow(Off, Softness(5), Opacity(60)), Transparent(Off), AntiAlias(On), OnReplay(Replace), Under(Off, Pen(1)), Font("LEMONMILKProFTR-Regular (Western [<LEMON MILK Pro FTR>])", 31), AdjustFontSize(Off, MinSize(25)), Kerning(None), Leading(-8), Justify(Center, Top), Tabs(Relative(On)));
+        }
+        :"BUI TONIC.6"
+        {
+          Group:
+            HardDuration(0);
+            TextBox(635, 980, 200, 50, "500 ml", Wipe("Straight", Duration(1000), Direction(0), Acceleration(1, 1), Wait(Off)), Layer(1), Face(On, Pen(1)), Shadow(Off, Softness(5), Opacity(60)), Transparent(Off), AntiAlias(On), OnReplay(Replace), Under(Off, Pen(1)), Font("LEMONMILKProFTR-Regular (Western [<LEMON MILK Pro FTR>])", 31), AdjustFontSize(Off, MinSize(25)), Kerning(None), Leading(-8), Justify(Center, Top), Tabs(Relative(On)));
+        }
+        :"BUI TONIC.7"
+        {
+          Group:
+            HardDuration(0);
+            TextBox(1085, 980, 200, 50, "500 ml", Wipe("Straight", Duration(1000), Direction(0), Acceleration(1, 1), Wait(Off)), Layer(1), Face(On, Pen(1)), Shadow(Off, Softness(5), Opacity(60)), Transparent(Off), AntiAlias(On), OnReplay(Replace), Under(Off, Pen(1)), Font("LEMONMILKProFTR-Regular (Western [<LEMON MILK Pro FTR>])", 31), AdjustFontSize(Off, MinSize(25)), Kerning(None), Leading(-8), Justify(Center, Top), Tabs(Relative(On)));
+        }
+        :"BUI TONIC.8"
+        {
+          Group:
+            HardDuration(0);
+            TextBox(1535, 980, 200, 50, "500 ml", Wipe("Straight", Duration(1000), Direction(0), Acceleration(1, 1), Wait(Off)), Layer(1), Face(On, Pen(1)), Shadow(Off, Softness(5), Opacity(60)), Transparent(Off), AntiAlias(On), OnReplay(Replace), Under(Off, Pen(1)), Font("LEMONMILKProFTR-Regular (Western [<LEMON MILK Pro FTR>])", 31), AdjustFontSize(Off, MinSize(25)), Kerning(None), Leading(-8), Justify(Center, Top), Tabs(Relative(On)));
+        }
+        :"BUI TONIC.2"
+        {
+          Group:
+            HardDuration(0);
+            TextBox(635, 930, 200, 60, "A", Wipe("Straight", Duration(1000), Direction(0), Acceleration(1, 1), Wait(Off)), Layer(1), Face(On, Pen(1)), Shadow(Off, Softness(5), Opacity(60)), Transparent(Off), AntiAlias(On), OnReplay(Replace), Under(Off, Pen(1)), Font("LEMONMILKProFTR-Bold (Western [<LEMON MILK Pro FTR Bold> 700])", 31), AdjustFontSize(Off, MinSize(25)), Caps(All), Kerning(None), Leading(-8), Justify(Center, Top), Tabs(Relative(On)), Append("gua B’ui^nNatural", Shadow(Off, Softness(5), Opacity(60)), Caps(Normal), Under(Off, Pen(1))));
+        }
+        :"BUI TONIC.3"
+        {
+          Group:
+            HardDuration(0);
+            TextBox(1085, 930, 200, 60, "A", Wipe("Straight", Duration(1000), Direction(0), Acceleration(1, 1), Wait(Off)), Layer(1), Face(On, Pen(1)), Shadow(Off, Softness(5), Opacity(60)), Transparent(Off), AntiAlias(On), OnReplay(Replace), Under(Off, Pen(1)), Font("LEMONMILKProFTR-Bold (Western [<LEMON MILK Pro FTR Bold> 700])", 31), AdjustFontSize(Off, MinSize(25)), Caps(All), Kerning(None), Leading(-8), Justify(Center, Top), Tabs(Relative(On)), Append("gua B’ui Gasificada", Shadow(Off, Softness(5), Opacity(60)), Caps(Normal), Under(Off, Pen(1))));
+        }
+        :"BUI TONIC.4"
+        {
+          Group:
+            HardDuration(0);
+            TextBox(1535, 930, 200, 60, "A", Wipe("Straight", Duration(1000), Direction(0), Acceleration(1, 1), Wait(Off)), Layer(1), Face(On, Pen(1)), Shadow(Off, Softness(5), Opacity(60)), Transparent(Off), AntiAlias(On), OnReplay(Replace), Under(Off, Pen(1)), Font("LEMONMILKProFTR-Bold (Western [<LEMON MILK Pro FTR Bold> 700])", 31), AdjustFontSize(Off, MinSize(25)), Caps(All), Kerning(None), Leading(-8), Justify(Center, Top), Tabs(Relative(On)), Append("gua B’ui^nTónica", Shadow(Off, Softness(5), Opacity(60)), Caps(Normal), Under(Off, Pen(1))));
+        }
+        {
+          Group:
+            Clip(960, 300, "Recursos\NATURAL GASIFICADA.png", Wipe("Straight", Duration(1000), Direction(0), Acceleration(1, 1), Wait(Off)), Layer(1), Face(On, Pen(1)), OnReplay(Replace), Operation(On, Resize(450, 630), ChromaKey($ffffff, Delta(2), Feather(0))));
+            HardDuration(0);
+        }
+        {
+          Group:
+            Clip(60, 300, "Recursos\NATURAL TETRA PACK.png", Wipe("Straight", Duration(1000), Direction(0), Acceleration(1, 1), Wait(Off)), Face(On, Pen(1)), OnReplay(Replace), Operation(On, Resize(450, 630), ChromaKey($0, Delta(2), Feather(0))));
+            HardDuration(0);
+        }
+        {
+          Group:
+            Clip(510, 300, "Recursos\NATURAL.png", Wipe("Straight", Duration(1000), Direction(0), Acceleration(1, 1), Wait(Off)), Face(On, Pen(1)), OnReplay(Replace), Operation(On, Resize(450, 630), ChromaKey($ffffff, Delta(2), Feather(0))));
+            HardDuration(0);
+        }
+        {
+          Group:
+            Clip(1410, 300, "Recursos\TONICA.png", Wipe("Straight", Duration(1000), Direction(0), Acceleration(1, 1), Wait(Off)), Face(On, Pen(1)), OnReplay(Replace), Operation(On, Resize(450, 630), ChromaKey($ffffff, Delta(2), Feather(0))));
+            HardDuration(0);
+        }
+      Resources:
+        :"ButtonExpr00000000"
+        {
+          Group:
+            select = 1;
+        }
+        :"ButtonExpr00000001"
+        {
+          Group:
+            select = 2;
+        }
+        :"ButtonExpr00000002"
+        {
+          Group:
+            select = 3;
+        }
+        :"ButtonExpr00000003"
+        {
+          Group:
+            select = 4;
+        }
+    }
+    :"FinPauta"
+    Goto("InicioPauta");
+    :"InicioCaracteristicas"
+    {
+    }
+    :"Caracteristicas_Producto"
+    {
+      Group:
+        Display(Wipe("SlideRebound", Duration(1000), Direction(0), Acceleration(1, 1)), Backdrop(State(Off), Pen(20)), Margin(0, 0, 0, 0), UserPalette(RGBPen(1, $0, $ffffff, $999999, $555555, $712068, $df449c, $dc110e, $662200, $ff5a00, $ff9c00, $ffee00, $8800, $dd00, $cccc, $66ff, $aa, $777777, $bbbbbb, $dddddd, $465a96)));
+        Clip(37, 180, img_producto, OnReplay(Replace), Operation(On, ChromaKey($0, Delta(2), Feather(0))));
+        Text(188, 29, nom_item, Face(On, Pen(1)), Shadow(On, Softness(5)), AntiAlias(On), OnReplay(Replace), Under(Off, Pen(1)), Font("Arial (Western [])", 85), UseCharHeight(On), Bold(On), Kerning(None), Tabs(Relative(On)), Wrap(On, Width(1096)));
+        MovieClip(0, 0, "Recursos\BACK PRODUCTO.mp4", Layer(-1), Shadow(On, Softness(5)), Transparent(Off), OnReplay(Replace), Operation(On));
+        TextBox(799, 283, 1001, 352, Carac_Producto, Face(On, Pen(1)), Shadow(On, Softness(5)), AntiAlias(On), OnReplay(Replace), Under(Off, Pen(1)), Font("Arial (Western [])", 47), AdjustFontSize(On, MinSize(80)), UseCharHeight(On), Bold(On), Kerning(None), Tabs(Relative(On)));
+        Wait();
+      Sequence:
+        TextBox(2132, 112, 80, 129, "$", Face(On, Pen(1)), Shadow(On, Softness(5)), AntiAlias(On), OnReplay(Replace), Under(Off, Pen(1)), Font("Bitstream Vera Sans (Western [])", 126), AdjustFontSize(On, MinSize(25)), UseCharHeight(On), Bold(On), Kerning(None), Tabs(Relative(On)));
+        {
+          Group:
+            TextBox(2222, 121, 439, 126, precio_producto, Face(On, Pen(1)), Shadow(On, Softness(5)), AntiAlias(On), OnReplay(Replace), Under(Off, Pen(1)), Font("Bitstream Vera Sans (Western [])", 126), AdjustFontSize(On, MinSize(25)), UseCharHeight(On), Bold(On), Kerning(None), Tabs(Relative(On)));
+            HardDuration(1000);
+        }
+    }
+    :"FinCaracteristicas"
+    Goto("InicioCaracteristicas");
+    :"InicioComparativa"
+    {
+    }
+    :"Comparativa_Prod"
+    {
+      Group:
+        Display(Wipe("FlipOpen", Duration(1000), Direction(0), Acceleration(1, 1)), Backdrop(State(Off), Pen(20)), Margin(0, 0, 0, 0), UserPalette(RGBPen(1, $0, $ffffff, $999999, $555555, $712068, $df449c, $dc110e, $662200, $ff5a00, $ff9c00, $ffee00, $8800, $dd00, $cccc, $66ff, $aa, $777777, $bbbbbb, $dddddd, $465a96, $a9e0)));
+        Clip(400, 250, ImgComp1, OnReplay(Replace), Operation(On, Resize(650, 830), ChromaKey($0, Delta(2), Feather(0))));
+        TextBox(1142, 82, 697, 145, ProdComp2, Layer(4), Face(On, Pen(1)), AntiAlias(On), OnReplay(Replace), Under(Off, Pen(1)), Font("LEMONMILKProFTR-Bold (Western [<LEMON MILK Pro FTR Bold> 700])", 50), AdjustFontSize(On, MinSize(25)), UseCharHeight(On), Kerning(None), Justify(Center, Top), Tabs(Relative(On)));
+        MovieClip(0, 0, "Recursos\BACK PANTALLA COMPARATIVA.mp4", Layer(-1), Transparent(Off), OnReplay(Replace), Operation(On));
+        TextBox(1500, 250, 400, 830, CaracComp2, Layer(4), Face(On, Pen(1)), AntiAlias(On), OnReplay(Replace), Under(Off, Pen(1)), Font("LEMONMILKProFTR-Regular (Western [<LEMON MILK Pro FTR>])", 33), AdjustFontSize(On, MinSize(25)), UseCharHeight(On), Kerning(None), Tabs(Relative(On)));
+        TextBox(66, 78, 669, 145, ProdComp1, Layer(4), Face(On, Pen(1)), AntiAlias(On), OnReplay(Replace), Under(Off, Pen(1)), Font("LEMONMILKProFTR-Bold (Western [<LEMON MILK Pro FTR Bold> 700])", 50), AdjustFontSize(On, MinSize(25)), UseCharHeight(On), Kerning(None), Justify(Center, Top), Tabs(Relative(On)));
+        TextBox(-1538, 371, 383, 145, PrecioComp1, Layer(4), AntiAlias(On), OnReplay(Replace), Font("Bitstream Vera Sans (Western [])", 50), AdjustFontSize(On, MinSize(25)), UseCharHeight(On), Kerning(None), Tabs(Relative(On)));
+        TextBox(20, 250, 400, 830, CaracComp1, Layer(4), Face(On, Pen(1)), AntiAlias(On), OnReplay(Replace), Under(Off, Pen(1)), Font("LEMONMILKProFTR-Regular (Western [<LEMON MILK Pro FTR>])", 33), AdjustFontSize(On, MinSize(25)), UseCharHeight(On), Kerning(None), Tabs(Relative(On)));
+        Clip(930, 250, ImgComp2, OnReplay(Replace), Operation(On, Resize(650, 830), ChromaKey($0, Delta(2), Feather(0))));
+        TextBox(-450, 387, 383, 145, PrecioComp2, Layer(4), AntiAlias(On), OnReplay(Replace), Font("Bitstream Vera Sans (Western [])", 50), AdjustFontSize(On, MinSize(25)), UseCharHeight(On), Kerning(None), Tabs(Relative(On)));
+        Wait();
+      Sequence:
+        HardDuration(0);
+        HardDuration(500);
+        HardDuration(0);
+        HardDuration(500);
+        HardDuration(0);
+        HardDuration(500);
+        HardDuration(0);
+        HardDuration(500);
+      Resources:
+        :"ButtonExpr00000000.2"
+        {
+          Group:
+            game_mouse_B = Off;
+        }
+        :"ButtonExpr00000001.2"
+        {
+          Group:
+            game_mouse_B = On;
+        }
+    }
+    :"FinComparativa"
+    Goto("InicioComparativa");
+    :"Inicio_SS"
+    {
+    }
+    :"_TempName1"
+    {
+      Group:
+        Movie("Videos\Pauta1.mp4", Backdrop(State(Off), Pen(20)), Margin(10, 10, 0, 0), UserPalette(RGBPen(1, $0, $ffffff, $999999, $555555, $712068, $df449c, $dc110e, $662200, $ff5a00, $ff9c00, $ffee00, $8800, $dd00, $cccc, $66ff, $aa, $777777, $bbbbbb, $dddddd, $465a96, $a9e0)), AutoScale(None), Operation(On));
+      Resources:
+        :"ButtonExpr00000000.3"
+        {
+          Group:
+            select = 1;
+        }
+        :"ButtonExpr00000001.3"
+        {
+          Group:
+            select = 2;
+        }
+        :"ButtonExpr00000002.2"
+        {
+          Group:
+            select = 3;
+        }
+        :"ButtonExpr00000003.2"
+        {
+          Group:
+            select = 4;
+        }
+    }
+    :"Fin_SS"
+    Goto("Inicio_SS");
+    :"Bypass"
+    Goto("InicioPauta", Bookmark(Off));
+    :"Assets"
+    {
+      Group:
+        Display(Backdrop(Pen(20)), Margin(10, 10, 0, 0), UserPalette(RGBPen(1, $0, $ffffff, $999999, $555555, $712068, $df449c, $dc110e, $662200, $ff5a00, $ff9c00, $ffee00, $8800, $dd00, $cccc, $66ff, $aa, $777777, $bbbbbb, $dddddd, $465a96)));
+        Clip(896, 92, img_Productos[2], OnReplay(Replace), Operation(On, ChromaKey($ffffff, Delta(2), Feather(0))));
+        Clip(3, 63, img_Productos[0], OnReplay(Replace), Operation(On, ChromaKey($0, Delta(2), Feather(0))));
+        Clip(457, 69, img_Productos[1], OnReplay(Replace), Operation(On, ChromaKey($ffffff, Delta(2), Feather(0))));
+        Clip(1311, 40, img_Productos[3], OnReplay(Replace), Operation(On, ChromaKey($ffffff, Delta(2), Feather(0))));
+    }
+    :"GoProducto"
+    {
+      Sequence:
+        :"Go_producto"
+        Goto("InicioCaracteristicas");
+    }
+    :"put_down"
+    {
+      Sequence:
+        Goto("InicioPauta");
+    }
+    :"TriggerComp"
+    {
+      Sequence:
+        Goto("InicioComparativa");
+    }
+    :"ScreenSaver_Trigger"
+    {
+      Sequence:
+        Goto("_TempName1");
+    }
+}

@@ -1,0 +1,155 @@
+﻿!ScalaScript1107
+// Saved by Diseñador Scala Versión 12.70.00 at 2025-02-05 10:44:44
+:"LandL_MMC_V1.2.sca"
+{
+  Group:
+    External String(show_welcome_text("Descubre el sabor del agua ideal, para tu vida diaria"));
+    Integer(select, TriggerMMC_, producto);
+    FileNameString(img_Productos[3]("Recursos\BUI\FULL PRODUCTO 1 PEPINO.mp4", "Recursos\BUI\FULL PRODUCTO 2 GASIFICADA.mp4", "Recursos\BUI\FULL PRODUCTO 3  MANANTIAL.mp4", "Recursos\BUI\FULL PRODUCTO 4  HIERBABUENA.mp4"), img_producto("Recursos\BUI\FULL PRODUCTO 1 PEPINO.mp4"));
+    String(nom_item("Producto"));
+    Integer(putdown);
+    String(precio_producto("000"), Carac_Producto("Caracteristicas del producto!"));
+    Boolean(game_mouse_B);
+    String(productos_names[3]("", "Producto 1", "Producto 2^n"), precios_comp[3]("", "Precio 1", "Precio 2"));
+    External FileNameString(img_prodcomp[3]("Recursos\BUI\1 PEPINO.mp4", "Recursos\BUI\2 GASIFICADA.mp4", "Recursos\BUI\3 MANANTIAL.mp4", "Recursos\BUI\4 HIERBA.mp4"));
+    String(caracteristicas_comp[3]("", "Caracteristicas 1 ", "Caracteristicas 2^n"));
+    Integer(Trigger_Comp);
+    String(test("Producto 1"), ProdComp1("Producto 1"), ProdComp2("Producto 2^n"), PrecioComp1("Precio 1"), PrecioComp2("Precio 2"));
+    FileNameString(ImgComp1("Recursos\BUI\1 PEPINO_img.jpg"), ImgComp2("Recursos\BUI\2 GASIFICADA_img.jpg"));
+    String(CaracComp("Caracteristicas 1 "), CaracComp1("Caracteristicas 1 "), CaracComp2("Caracteristicas 2 "));
+    Integer(TriggerSS);
+    String(log1("log"));
+    BackgroundSettings(Size(1920, 1080));
+    OnNotification(TriggerMMC_, Use("GoProducto"));
+    OnNotification(putdown, Use("put_down"));
+    OnNotification(Trigger_Comp, Use("TriggerComp"));
+    OnNotification(TriggerSS, Use("ScreenSaver_Trigger"));
+    Config.RecentPublishLocations(PublishLocation("Laboratorio", "Lift&Learn BUI2"));
+  Sequence:
+    :"Nextmosphere"
+    WindowsScript("Nexmosphere_Reader_1.py", Engine("Python.AXScript.2"), ShareVariable(show_welcome_text), ShareVariable(TriggerMMC_), ShareVariable(select), ShareVariable(img_producto), ShareVariable(img_Productos), ShareVariable(nom_item), ShareVariable(producto), ShareVariable(putdown), ShareVariable(precio_producto), ShareVariable(Carac_Producto), ShareVariable(game_mouse_B), ShareVariable(productos_names), ShareVariable(precios_comp), ShareVariable(img_prodcomp), ShareVariable(caracteristicas_comp), ShareVariable(Trigger_Comp), ShareVariable(test), ShareVariable(ProdComp1), ShareVariable(ProdComp2), ShareVariable(PrecioComp1), ShareVariable(PrecioComp2), ShareVariable(ImgComp1), ShareVariable(ImgComp2), ShareVariable(CaracComp), ShareVariable(CaracComp1), ShareVariable(CaracComp2), ShareVariable(TriggerSS), ShareVariable(log1));
+    :"InicioPauta"
+    {
+    }
+    :"Pantalla Principal"
+    {
+      Group:
+        Display(Backdrop(State(Off), Pen(20)), Margin(0, 0, 0, 0), UserPalette(RGBPen(1, $0, $ffffff, $999999, $555555, $712068, $df449c, $dc110e, $662200, $ff5a00, $ff9c00, $ffee00, $8800, $dd00, $cccc, $66ff, $aa, $777777, $bbbbbb, $dddddd, $465a96, $a9e0)), Thumbnail(On));
+        MovieClip(0, 0, "Recursos\BUI\principal.mp4", Transparent(Off), OnReplay(Replace), Operation(On));
+        Wait();
+      Resources:
+        :"ButtonExpr00000000"
+        {
+          Group:
+            select = 1;
+        }
+        :"ButtonExpr00000001"
+        {
+          Group:
+            select = 2;
+        }
+        :"ButtonExpr00000002"
+        {
+          Group:
+            select = 3;
+        }
+        :"ButtonExpr00000003"
+        {
+          Group:
+            select = 4;
+        }
+    }
+    :"FinPauta"
+    Goto("InicioPauta");
+    :"InicioCaracteristicas"
+    {
+    }
+    :"Caracteristicas_Producto"
+    {
+      Group:
+        Display(Backdrop(State(Off), Pen(20)), Margin(0, 0, 0, 0), UserPalette(RGBPen(1, $0, $ffffff, $999999, $555555, $712068, $df449c, $dc110e, $662200, $ff5a00, $ff9c00, $ffee00, $8800, $dd00, $cccc, $66ff, $aa, $777777, $bbbbbb, $dddddd, $465a96)));
+        Text(2091, -9, nom_item, Face(On, Pen(1)), Shadow(On, Softness(5)), AntiAlias(On), OnReplay(Replace), Under(Off, Pen(1)), Font("Arial (Western [])", 85), UseCharHeight(On), Bold(On), Kerning(None), Tabs(Relative(On)), Wrap(On, Width(1096)));
+        TextBox(1944, 338, 1001, 352, Carac_Producto, Face(On, Pen(1)), Shadow(On, Softness(5)), AntiAlias(On), OnReplay(Replace), Under(Off, Pen(1)), Font("Arial (Western [])", 47), AdjustFontSize(On, MinSize(80)), UseCharHeight(On), Bold(On), Kerning(None), Tabs(Relative(On)));
+        MovieClip(0, 0, img_producto, Shadow(On, Softness(5)), Transparent(Off), OnReplay(Replace), Operation(On));
+        Wait();
+      Sequence:
+        TextBox(1997, 139, 80, 129, "$", Face(On, Pen(1)), Shadow(On, Softness(5)), AntiAlias(On), OnReplay(Replace), Under(Off, Pen(1)), Font("Bitstream Vera Sans (Western [])", 126), AdjustFontSize(On, MinSize(25)), UseCharHeight(On), Bold(On), Kerning(None), Tabs(Relative(On)));
+        {
+          Group:
+            TextBox(2106, 141, 439, 126, precio_producto, Face(On, Pen(1)), Shadow(On, Softness(5)), AntiAlias(On), OnReplay(Replace), Under(Off, Pen(1)), Font("Bitstream Vera Sans (Western [])", 126), AdjustFontSize(On, MinSize(25)), UseCharHeight(On), Bold(On), Kerning(None), Tabs(Relative(On)));
+            HardDuration(1000);
+        }
+    }
+    :"FinCaracteristicas"
+    Goto("InicioCaracteristicas");
+    :"InicioComparativa"
+    {
+    }
+    :"Comparativa_Prod"
+    {
+      Group:
+        Display(Backdrop(State(Off), Pen(20)), Margin(0, 0, 0, 0), UserPalette(RGBPen(1, $0, $ffffff, $999999, $555555, $712068, $df449c, $dc110e, $662200, $ff5a00, $ff9c00, $ffee00, $8800, $dd00, $cccc, $66ff, $aa, $777777, $bbbbbb, $dddddd, $465a96, $a9e0)));
+        TextBox(1989, 83, 697, 145, ProdComp2, Layer(4), Face(On, Pen(1)), AntiAlias(On), OnReplay(Replace), Under(Off, Pen(1)), Font("Arial (Western [])", 50), AdjustFontSize(On, MinSize(25)), UseCharHeight(On), Kerning(None), Justify(Center, Top), Tabs(Relative(On)));
+        TextBox(2058, 318, 400, 830, CaracComp2, Layer(4), Face(On, Pen(1)), AntiAlias(On), OnReplay(Replace), Under(Off, Pen(1)), Font("Arial (Western [])", 33), AdjustFontSize(On, MinSize(25)), UseCharHeight(On), Kerning(None), Tabs(Relative(On)));
+        TextBox(-843, 8, 669, 145, ProdComp1, Layer(4), Face(On, Pen(1)), AntiAlias(On), OnReplay(Replace), Under(Off, Pen(1)), Font("Arial (Western [])", 50), AdjustFontSize(On, MinSize(25)), UseCharHeight(On), Kerning(None), Justify(Center, Top), Tabs(Relative(On)));
+        TextBox(-548, 530, 383, 145, PrecioComp1, Layer(4), AntiAlias(On), OnReplay(Replace), Font("Bitstream Vera Sans (Western [])", 50), AdjustFontSize(On, MinSize(25)), UseCharHeight(On), Kerning(None), Tabs(Relative(On)));
+        TextBox(-704, 227, 400, 830, CaracComp1, Layer(4), Face(On, Pen(1)), AntiAlias(On), OnReplay(Replace), Under(Off, Pen(1)), Font("Arial (Western [])", 33), AdjustFontSize(On, MinSize(25)), UseCharHeight(On), Kerning(None), Tabs(Relative(On)));
+        TextBox(-450, 387, 383, 145, PrecioComp2, Layer(4), AntiAlias(On), OnReplay(Replace), Font("Bitstream Vera Sans (Western [])", 50), AdjustFontSize(On, MinSize(25)), UseCharHeight(On), Kerning(None), Tabs(Relative(On)));
+        Wait();
+      Sequence:
+        HardDuration(0);
+        HardDuration(500);
+        {
+          Group:
+            MovieClip(0, 0, ImgComp1, Transparent(Off), OnReplay(Replace), Operation(On));
+            HardDuration(500);
+        }
+        {
+          Group:
+            MovieClip(961, 0, ImgComp2, Transparent(Off), OnReplay(Replace), Operation(On));
+            HardDuration(500);
+        }
+      Resources:
+        :"ButtonExpr00000000.2"
+        {
+          Group:
+            game_mouse_B = Off;
+        }
+        :"ButtonExpr00000001.2"
+        {
+          Group:
+            game_mouse_B = On;
+        }
+    }
+    :"FinComparativa"
+    Goto("InicioComparativa");
+    :"Inicio_SS"
+    {
+    }
+    :"Fin_SS"
+    Goto("Inicio_SS");
+    :"Bypass"
+    Goto("InicioPauta", Bookmark(Off));
+    :"Assets"
+    Display(Backdrop(State(Off), Pen(20)), Margin(10, 10, 0, 0), UserPalette(RGBPen(1, $0, $ffffff, $999999, $555555, $712068, $df449c, $dc110e, $662200, $ff5a00, $ff9c00, $ffee00, $8800, $dd00, $cccc, $66ff, $aa, $777777, $bbbbbb, $dddddd, $465a96)));
+    :"GoProducto"
+    {
+      Sequence:
+        :"Go_producto"
+        Goto("InicioCaracteristicas");
+    }
+    :"put_down"
+    {
+      Sequence:
+        Goto("InicioPauta");
+    }
+    :"TriggerComp"
+    {
+      Sequence:
+        Goto("InicioComparativa");
+    }
+    :"ScreenSaver_Trigger"
+    {
+      Sequence:
+    }
+}
