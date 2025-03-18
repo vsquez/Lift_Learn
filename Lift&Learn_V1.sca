@@ -1,117 +1,69 @@
 ﻿!ScalaScript1107
-// Saved by Diseñador Scala Versión 12.70.00 at 2025-02-05 02:24:24
+// Saved by Diseñador Scala Versión 12.70.00 at 2025-03-17 23:19:10
 :"Lift&Learn_V1.sca"
 {
   Group:
-    Boolean(On_produccion);
-    String(producto_1("0"), producto_2("0"), producto_3("0"), producto_4("0"));
-    Boolean(error(Off));
-    String(antena_4A("4A"), antena_6A("6A"), antena_3A("3A"), antena_5A("5A"), status_1("0"), status_2("0"), status_3("0"), status_4("0"), log1("log1"));
-    Integer(log_color);
-    Boolean(interrumpir(Off));
-    String(log_SD("logSD"));
+    String(log1("___log1___"), log2("___log2___"), status_pds[3]("004A", "006A", "003A", "005A"));
+    Integer(pds_arriba(1000));
     BackgroundSettings(Size(1920, 1080));
-    Hotkey("x", Use("hotkey_reiniciar"));
-    Hotkey("f", Use("hotkey_debugOFF"));
-    Hotkey("o", Use("hotkey_debugON"));
   Sequence:
-    :"Inicio"
-    {
-      Group:
-        HardDuration(0);
-      Sequence:
-        :"inhabilitar caja de DEBUG"
-        log_color = 0;
-        :"reinicio de valor ITERRUMPIR"
-        interrumpir = Off;
-    }
-    :"Detectar cambios en los sensores"
-    {
-      Group:
-        WindowsScript("Scripts\Conexion_sensores.py", Engine("Python.AXScript.2"), ShareVariable(producto_1), ShareVariable(producto_4), ShareVariable(producto_3), ShareVariable(producto_2), ShareVariable(error), ShareVariable(antena_4A), ShareVariable(antena_6A), ShareVariable(antena_3A), ShareVariable(antena_5A), ShareVariable(status_1), ShareVariable(status_2), ShareVariable(status_3), ShareVariable(status_4), ShareVariable(log1), ShareVariable(interrumpir));
-        HardDuration(2000);
-    }
-    :"[group] Reiniciar?"
-    {
-      Sequence:
-        :"Habilitar caja de DEBUG"
-        Disabled log_color = 1;
-        :"Iterrupcion?"
-        {
-          Group:
-            log_SD = "Reiniciando...";
-            If(interrumpir = True);
-            HardDuration(0);
-            Goto("Inicio", Bookmark(Off));
-        }
-    }
-    :"[group] Error?"
-    {
-      Sequence:
-        :"Habilitar caja de DEBUG.2"
-        log_color = 100;
-        :"Error?"
-        {
-          Group:
-            log_SD = "Error critico: Revisar logs en D:/L&L/logs/L&L.log";
-            If(error = True);
-            HardDuration(0);
-        }
-        :"Error_critico"
-        {
-          Group:
-            Display(Backdrop(Pen(1)), Margin(10, 10, 0, 0), UserPalette(RGBPen(1, $0, $ffffff, $999999, $555555, $712068, $df449c, $dc110e, $662200, $ff5a00, $ff9c00, $ffee00, $8800, $dd00, $cccc, $66ff, $aa, $777777, $bbbbbb, $dddddd, $465a96, $d2d2d2, $b4b4b4, $808080, $5e5e5e, $ffff06, $fff703, $d5c600, $9e9200, $acacac, $7c7c7c, $474747, $353535, $101010, $31bfff, $158eff, $57e4, $42bd)));
-            TextBox(632, 196, 1259, 82, log1, Layer(1), Backdrop(On, Pen(15)), Shadow(Off, Softness(5)), Bevel(Off, Base(Pen(15)), Left(Pen(35)), Right(Pen(36)), Top(Pen(34)), Bottom(Pen(37))), AntiAlias(On), OnReplay(Replace), Under(Off, Thickness(3)), Font("Consolas (Western [])", 50), AdjustFontSize(On, MinSize(25)), UseCharHeight(On), Kerning(None), Justify(Center, Top), Tabs(Relative(On)));
-            TextBox(9, 17, 1886, 173, log_SD, Backdrop(On, Pen(4)), Outline(Off, Pen(11)), Shadow(Off, Softness(5)), Bevel(Off, Base(Pen(4)), Left(Pen(30)), Right(Pen(31)), Top(Pen(29)), Bottom(Pen(32))), AntiAlias(On), OnReplay(Replace), Under(Off, Thickness(3)), Font("Bitstream Vera Sans (Western [])", 50), AdjustFontSize(On, MinSize(25)), UseCharHeight(On), Kerning(None), Justify(Center, Top), Tabs(Relative(On)));
-            TextBox(9, 294, 1877, 687, "Problemas con los sensores:^n° Comprueba que el puerto COM sea el COM3^n° Verifica que si reconozca los sensores el player/pc^n^t   - De ser necesario, busca 'Lift_Learn\Recursos\drivers!!!' para instalar drivers^n", Face(On, Pen(6)), Shadow(On, Softness(5)), AntiAlias(On), OnReplay(Replace), Under(Off, Thickness(3), Pen(6)), Font("Bitstream Vera Sans (Western [])", 47), AdjustFontSize(Off, MinSize(25)), UseCharHeight(On), Kerning(None), Justify(Left, Middle), Tabs(Relative(On)));
-            Wait();
-        }
-    }
-    :"Pantalla PRINCIPAL"
-    {
-      Group:
-        Display(Backdrop(Pen(4)), Margin(10, 10, 0, 0), UserPalette(RGBPen(1, $0, $ffffff, $999999, $555555, $712068, $df449c, $dc110e, $662200, $ff5a00, $ff9c00, $ffee00, $8800, $dd00, $cccc, $66ff, $aa, $777777, $bbbbbb, $dddddd, $465a96, $d2d2d2, $b4b4b4, $808080, $5e5e5e, $484848, $101010)), Thumbnail(On));
-        TextBox(166, 594, 120, 59, antena_4A, Layer(1), Shadow(Off, Softness(5)), Align(None, Middle), AntiAlias(On), OnReplay(Replace), Under(Off, Thickness(3)), Font("Bitstream Vera Sans (Western [])", 50), AdjustFontSize(On, MinSize(25)), UseCharHeight(On), Kerning(None), Justify(Center, Top), Tabs(Relative(On)));
-        TextBox(62, 22, 1828, 141, log1, Layer(1), Face(On, Pen(11)), Backdrop(On, Pen(1)), Shadow(Off, Softness(5)), Bevel(Off, Base(Pen(1)), Left(Pen(26)), Right(Pen(1)), Top(Pen(25)), Bottom(Pen(1))), AntiAlias(On), OnReplay(Replace), Opacity(log_color), Under(Off, Thickness(3), Pen(11)), Font("Bitstream Vera Sans (Western [])", 50), AdjustFontSize(On, MinSize(25)), UseCharHeight(On), Kerning(None), Justify(Center, Middle), Tabs(Relative(On)));
-        Rect(40, 632, 400, 700, Align(None, Middle), AntiAlias(On), OnReplay(Replace), Thickness(2), Area(On, Pen(6)));
-        Rect(524, 557, 400, 700, Align(None, Middle), AntiAlias(On), OnReplay(Replace), Thickness(2), Area(On, Pen(6)));
-        Rect(1031, 520, 400, 700, Align(None, Middle), AntiAlias(On), OnReplay(Replace), Thickness(2), Area(On, Pen(6)));
-        Rect(1497, 563, 400, 700, Align(None, Middle), AntiAlias(On), OnReplay(Replace), Thickness(2), Area(On, Pen(6)));
-        TextBox(664, 606, 120, 59, antena_6A, Shadow(Off, Softness(5)), Align(None, Middle), AntiAlias(On), OnReplay(Replace), Under(Off, Thickness(3)), Font("Bitstream Vera Sans (Western [])", 50), AdjustFontSize(On, MinSize(25)), UseCharHeight(On), Kerning(None), Justify(Center, Top), Tabs(Relative(On)));
-        TextBox(1171, 551, 120, 59, antena_3A, Shadow(Off, Softness(5)), Align(None, Middle), AntiAlias(On), OnReplay(Replace), Under(Off, Thickness(3)), Font("Bitstream Vera Sans (Western [])", 50), AdjustFontSize(On, MinSize(25)), UseCharHeight(On), Kerning(None), Justify(Center, Top), Tabs(Relative(On)));
-        TextBox(1637, 506, 120, 59, antena_5A, Shadow(Off, Softness(5)), Align(None, Middle), AntiAlias(On), OnReplay(Replace), Under(Off, Thickness(3)), Font("Bitstream Vera Sans (Western [])", 50), AdjustFontSize(On, MinSize(25)), UseCharHeight(On), Kerning(None), Justify(Center, Top), Tabs(Relative(On)));
-        Text(144, 215, "4A", Layer(1), Shadow(Off, Softness(5)), AntiAlias(On), OnReplay(Replace), Under(Off, Thickness(3)), Font("Bitstream Vera Sans (Western [])", 50), UseCharHeight(On), Kerning(None), Tabs(Relative(On)), Wrap(On, Width(1650)));
-        Text(627, 210, "6A", Layer(1), Shadow(Off, Softness(5)), AntiAlias(On), OnReplay(Replace), Under(Off, Thickness(3)), Font("Bitstream Vera Sans (Western [])", 50), UseCharHeight(On), Kerning(None), Tabs(Relative(On)), Wrap(On, Width(1650)));
-        Text(1136, 211, "3A", Layer(1), Shadow(Off, Softness(5)), AntiAlias(On), OnReplay(Replace), Under(Off, Thickness(3)), Font("Bitstream Vera Sans (Western [])", 50), UseCharHeight(On), Kerning(None), Tabs(Relative(On)), Wrap(On, Width(1650)));
-        Text(1625, 213, "5A", Layer(1), Shadow(Off, Softness(5)), AntiAlias(On), OnReplay(Replace), Under(Off, Thickness(3)), Font("Bitstream Vera Sans (Western [])", 50), UseCharHeight(On), Kerning(None), Tabs(Relative(On)), Wrap(On, Width(1650)));
-        Wait();
-    }
-    :"_____________"
+    :"sensores"
+    WindowsScript("Scripts\sensores.py", Engine("Python.AXScript.2"), ShareVariable(log1), ShareVariable(log2), ShareVariable(status_pds), ShareVariable(pds_arriba));
+    :"debug"
     Disabled
     {
+      Group:
+        Display(Backdrop(State(On), Pen(4)), Margin(10, 10, 0, 0), UserPalette(RGBPen(1, $0, $ffffff, $999999, $555555, $712068, $df449c, $dc110e, $662200, $ff5a00, $ff9c00, $ffee00, $8800, $dd00, $cccc, $66ff, $aa, $777777, $bbbbbb, $dddddd, $465a96)), Thumbnail(On));
+        TextBox(128, 220, 366, 283, status_pds[0], Shadow(Off, Softness(5)), AntiAlias(On), OnReplay(Replace), Under(Off, Thickness(3)), Font("Bitstream Vera Sans (Western [])", 50), AdjustFontSize(On, MinSize(25)), UseCharHeight(On), Kerning(None), Justify(Center, Middle), Tabs(Relative(On)));
+        TextBox(561, 220, 366, 283, status_pds[1], Shadow(Off, Softness(5)), AntiAlias(On), OnReplay(Replace), Under(Off, Thickness(3)), Font("Bitstream Vera Sans (Western [])", 50), AdjustFontSize(On, MinSize(25)), UseCharHeight(On), Kerning(None), Justify(Center, Middle), Tabs(Relative(On)));
+        TextBox(1114, 220, 366, 283, status_pds[2], Shadow(Off, Softness(5)), AntiAlias(On), OnReplay(Replace), Under(Off, Thickness(3)), Font("Bitstream Vera Sans (Western [])", 50), AdjustFontSize(On, MinSize(25)), UseCharHeight(On), Kerning(None), Justify(Center, Middle), Tabs(Relative(On)));
+        TextBox(1528, 220, 366, 283, status_pds[3], Shadow(Off, Softness(5)), AntiAlias(On), OnReplay(Replace), Under(Off, Thickness(3)), Font("Bitstream Vera Sans (Western [])", 50), AdjustFontSize(On, MinSize(25)), UseCharHeight(On), Kerning(None), Justify(Center, Middle), Tabs(Relative(On)));
+        TextBox(1353, 689, 455, 328, log2, Shadow(Off, Softness(5)), AntiAlias(On), OnReplay(Replace), Under(Off, Thickness(3)), Font("Bitstream Vera Sans (Western [])", 50), AdjustFontSize(On, MinSize(25)), UseCharHeight(On), Kerning(None), Justify(Center, Middle), Tabs(Relative(On)));
+        TextBox(153, 676, 455, 328, log1, Shadow(Off, Softness(5)), AntiAlias(On), OnReplay(Replace), Under(Off, Thickness(3)), Font("Bitstream Vera Sans (Western [])", 50), AdjustFontSize(On, MinSize(25)), UseCharHeight(On), Kerning(None), Justify(Center, Middle), Tabs(Relative(On)));
     }
-    :"Bypass"
-    Goto("End", Bookmark(Off));
-    :"hotkey_reiniciar"
+    :"principal?"
     {
       Group:
-        interrumpir = On;
-        HardDuration(0);
-        Goto("[group] Reiniciar?");
+        Goto("principal");
+        If(pds_arriba = 0);
     }
-    :"hotkey_debugON"
+    :"detalle?"
     {
       Group:
-        log_color = 100;
-        Goto("Pantalla PRINCIPAL");
+        If(pds_arriba = 1);
+        Goto("detalle");
     }
-    :"hotkey_debugOFF"
+    :"comparacion?"
     {
       Group:
-        log_color = 0;
-        Goto("Pantalla PRINCIPAL");
+        If(pds_arriba = 2);
+        Goto("comparacion");
     }
-    :"End"
+    :"principal"
     {
+      Group:
+        Display(Backdrop(Pen(20)), Margin(10, 10, 0, 0), UserPalette(RGBPen(1, $0, $ffffff, $999999, $555555, $712068, $df449c, $dc110e, $662200, $ff5a00, $ff9c00, $ffee00, $8800, $dd00, $cccc, $66ff, $aa, $777777, $bbbbbb, $dddddd, $465a96)));
+        Text(20, 20, "principal", Shadow(Off, Softness(5)), Align(Center, Middle), AntiAlias(On), OnReplay(Replace), Under(Off, Thickness(3)), Font("Bitstream Vera Sans (Western [])", 50), UseCharHeight(On), Kerning(None), Justify(Center, Top), Tabs(Relative(On)), Wrap(On, Width(1890)));
+        HardDuration(10, ResetOnInput(On));
     }
+    :"volver_INICIO"
+    Goto("sensores");
+    :"detalle"
+    {
+      Group:
+        Display(Backdrop(State(On), Pen(12)), Margin(10, 10, 0, 0), UserPalette(RGBPen(1, $0, $ffffff, $999999, $555555, $712068, $df449c, $dc110e, $662200, $ff5a00, $ff9c00, $ffee00, $8800, $dd00, $cccc, $66ff, $aa, $777777, $bbbbbb, $dddddd, $465a96)));
+        Text(544, 352, "detalle", Shadow(Off, Softness(5)), Align(Center, Middle), AntiAlias(On), OnReplay(Replace), Under(Off, Thickness(3)), Font("Bitstream Vera Sans (Western [])", 50), UseCharHeight(On), Kerning(None), Justify(Center, Top), Tabs(Relative(On)), Wrap(On, Width(1366)));
+        HardDuration(10, ResetOnInput(On));
+    }
+    :"volver_INICIO.2"
+    Goto("sensores");
+    :"comparacion"
+    {
+      Group:
+        Display(Backdrop(State(On), Pen(5)), Margin(10, 10, 0, 0), UserPalette(RGBPen(1, $0, $ffffff, $999999, $555555, $712068, $df449c, $dc110e, $662200, $ff5a00, $ff9c00, $ffee00, $8800, $dd00, $cccc, $66ff, $aa, $777777, $bbbbbb, $dddddd, $465a96)));
+        Text(432, 481, "comparacion", Shadow(Off, Softness(5)), Align(Center, Middle), AntiAlias(On), OnReplay(Replace), Under(Off, Thickness(3)), Font("Bitstream Vera Sans (Western [])", 50), UseCharHeight(On), Kerning(None), Justify(Center, Top), Tabs(Relative(On)), Wrap(On, Width(1478)));
+        HardDuration(10, ResetOnInput(On));
+    }
+    :"volver_INICIO.3"
+    Goto("sensores");
 }
